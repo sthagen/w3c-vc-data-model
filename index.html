@@ -412,143 +412,20 @@ Common
 <a href="https://www.w3.org/TR/vc-use-cases/#user-sequences">sequences
 and flows</a> identified by the Working Group.
           </li>
+          <li>
+Desirable
+<a href="https://www.w3.org/TR/vc-use-cases/#desirable-ecosystem-characteristics">
+ecosystem characteristics and requirements</a> that are
+foundational to this specification
+          </li>
         </ul>
 
         <p>
-As a result of documenting and analyzing the use cases document, the following
-desirable ecosystem characteristics were identified for this specification:
+Readers are encouraged to familiarize themselves with the use cases document
+[[VC-USE-CASES]] in order to understand the motivations for the technical
+features provided by this specification.
         </p>
-<!-- requirement list start -->
-        <ul>
-          <li>
-<a>Credentials</a> represent statements made by an <a>issuer</a>.
-          </li>
-          <li>
-<a>Verifiable credentials</a> represent statements made by an <a>issuer</a> in
-a tamper-evident and privacy-respecting manner.
-          </li>
-          <li>
-<a>Holders</a> assemble collections of <a>credentials</a> and/or
-<a>verifiable credentials</a> from different <a>issuers</a> into a single
-artifact, a <a>presentation</a>.
-          </li>
-          <li>
-Holders transform <a>presentations</a> into <a>verifiable presentations</a>
-to render them tamper-evident.
-          </li>
-          <li>
-<a>Issuers</a> can issue <a>verifiable credentials</a> about any <a>subject</a>.
-          </li>
-          <li>
-Acting as <a>issuer</a>, <a>holder</a>, or <a>verifier</a> requires neither
-registration nor approval by any authority, as the trust involved is bilateral
-between parties.
-          </li>
-          <li>
-<a>Verifiable presentations</a> allow any <a>verifier</a> to <a>verify</a> the
-authenticity of <a>verifiable credentials</a> from any <a>issuer</a>.
-          </li>
-          <li>
-<a>Holders</a> can receive <a>verifiable credentials</a> from anyone.
-          </li>
-          <li>
-<a>Holders</a> can interact with any <a>issuer</a> and any <a>verifier</a>
-through any user agent.
-          </li>
-          <li>
-<a>Holders</a> can share <a>verifiable presentations</a>, which can then be
-<a>verified</a> without revealing the identity of the <a>verifier</a> to the
-<a>issuer</a>.
-          </li>
-          <li>
-<a>Holders</a> can store <a>verifiable credentials</a> in any location, without
-affecting their <a>verifiability</a> and without the <a>issuer</a> knowing
-anything about where they are stored or when they are accessed.
-          </li>
-          <li>
-<a>Holders</a> can present <a>verifiable presentations</a> to any
-<a>verifier</a> without affecting authenticity of the claims and without
-revealing that action to the <a>issuer</a>.
-          </li>
-          <li>
-A <a>verifier</a> can <a>verify</a> <a>verifiable presentations</a> from any
-<a>holder</a>, containing proofs of <a>claims</a> from any <a>issuer</a>.
-          </li>
-          <li>
-<a>Verification</a> should not depend on direct interactions between
-<a>issuers</a> and <a>verifiers</a>.
-          </li>
-          <li>
-<a>Verification</a> should not reveal the identity of the <a>verifier</a> to
-any <a>issuer</a>.
-          </li>
-          <li>
-The specification must provide a means for <a>issuers</a> to issue
-<a>verifiable credentials</a> that support selective disclosure, without
-requiring all conformant software to support that feature.
-          </li>
-          <li>
-<a>Issuers</a> can issue <a>verifiable credentials</a> that support
-selective disclosure.
-          </li>
-          <li>
-If a single <a>verifiable credential</a> supports selective disclosure, then
-<a>holders</a> can present proofs of <a>claims</a> without revealing the entire
-<a>verifiable credential</a>.
-          </li>
-          <li>
-<a>Verifiable presentations</a> can either disclose the attributes of a
-<a>verifiable credential</a>, or satisfy <a>derived predicates</a> requested by
-the <a>verifier</a>. <a>Derived predicates</a> are Boolean conditions, such as
-greater than, less than, equal to, is in set, and so on.
-          </li>
-          <li>
-<a>Issuers</a> can issue revocable <a>verifiable credentials</a>.
-          </li>
-          <li>
-The processes of cryptographically protecting <a>credentials</a> and
-<a>presentations</a>, and verifying <a>verifiable credentials</a> and
-<a>verifiable presentations</a>, have to be deterministic, bi-directional, and
-lossless. Any verification of a <a>verifiable credential</a> or
-<a>verifiable presentation</a> has to be transformable to the generic data model
-defined in this document in a deterministic process, such that the resulting
-<a>credential</a> or <a>presentation</a> is semantically and syntactically
-equivalent to the original construct, so that it can be processed in an
-interoperable fashion.
-          </li>
-          <li>
-<a>Verifiable credentials</a> and <a>verifiable presentations</a> have to be
-serializable in one or more machine-readable data formats. The process of
-serialization and/or de-serialization has to be deterministic, bi-directional,
-and lossless. Any serialization of a <a>verifiable credential</a> or
-<a>verifiable presentation</a> needs to be transformable to the generic data
-model defined in this document in a deterministic process such that the
-resulting <a>verifiable credential</a> can be processed in an interoperable
-fashion. The serialized form also needs to be able to be generated from the data
-model without loss of data or content.
-          </li>
-          <li>
-The data model and serialization must be extendable with minimal coordination.
-          </li>
-          <li>
-Revocation by the <a>issuer</a> should not reveal any identifying information
-about the <a>subject</a>, the <a>holder</a>, the specific
-<a>verifiable credential</a>, or the <a>verifier</a>.
-          </li>
-          <li>
-<a>Issuers</a> can disclose the revocation reason.
-          </li>
-          <li>
-<a>Issuers</a> revoking <a>verifiable credentials</a> should distinguish between
-revocation for cryptographic integrity (for example, the signing key is
-compromised) versus revocation for a status change (for example, the driver's
-license is suspended).
-          </li>
-          <li>
-<a>Issuers</a> can provide a service for refreshing a
-<a>verifiable credential</a>.
-          </li>
-        </ul>
+
       </section>
 
       <section id="conformance" class="normative">
