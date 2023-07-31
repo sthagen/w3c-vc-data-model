@@ -713,7 +713,7 @@ metadata that cryptographically prove who issued it.
 
         <figure id="basic-vc">
           <img style="margin: auto; display: block; width: 50%;"
-               src="diagrams/vc.svg" alt="a Verifible
+               src="diagrams/vc.svg" alt="a Verifiable
                Credential contains Credential Metadata, Claim(s), and
                Proof(s)">
           <figcaption style="text-align: center;">
@@ -750,7 +750,7 @@ which is usually a digital signature.
           <img style="margin: auto; display: block; width: 100%;"
                src="diagrams/vc-graph.svg" alt="diagram with a
                Credential Graph on top connected via a proof to a
-               Proof Graph on the bottom.  The Credental Graph has
+               Proof Graph on the bottom.  The Credential Graph has
                Credential 123 with 4 properties: 'type' of value
                ExampleAlumniCredential, 'issuer' of Example University,
                'validFrom' of 2010-01-01T19:23:24Z, and
@@ -1493,7 +1493,7 @@ A <a>verifiable credential</a> MUST have a <code>credentialSubject</code>
         </p>
 
         <dl>
-          <dt>credentialSubject</dt>
+          <dt><dfn id="defn-credentialSubject">credentialSubject</dfn></dt>
           <dd>
 The value of the <code>credentialSubject</code> <a>property</a> is defined as
 a set of objects that MUST contain one or more claims that are each related to a
@@ -1569,7 +1569,7 @@ A <a>verifiable credential</a> MUST have an <code>issuer</code> <a>property</a>.
         </p>
 
         <dl>
-          <dt><var>issuer</var></dt>
+          <dt><var id="defn-issuer">issuer</var></dt>
           <dd>
 The value of the <code>issuer</code> <a>property</a> MUST be either a
 <a>URL</a> or an object containing an <code>id</code> <a>property</a>. It is
@@ -1650,7 +1650,7 @@ when a <a>credential</a> ceases to be valid.
         </p>
 
         <dl>
-          <dt><var>validFrom</var></dt>
+          <dt><var id="defn-validFrom">validFrom</var></dt>
           <dd>
 If present, the value of the <code>validFrom</code> <a>property</a> MUST be
 an [<a data-cite="XMLSCHEMA11-2#dateTime">XMLSCHEMA11-2</a>]
@@ -1660,7 +1660,7 @@ Note that this value represents the earliest point in time
 at which the information associated with the <code>credentialSubject</code>
 <a>property</a> becomes valid.
           </dd>
-          <dt><var>validUntil</var></dt>
+          <dt><var id="defn-validUntil">validUntil</var></dt>
           <dd>
 If present, the value of the <code>validUntil</code> <a>property</a> MUST be an
 [<a data-cite="XMLSCHEMA11-2#dateTimeStamp">XMLSCHEMA11-2</a>]
@@ -1896,7 +1896,7 @@ This specification defines the following <code>credentialStatus</code>
         </p>
 
         <dl>
-          <dt><var>credentialStatus</var></dt>
+          <dt><var id="defn-credentialStatus">credentialStatus</var></dt>
           <dd>
 If present, the value of the <code>credentialStatus</code> <a>property</a> MUST
 include the following:
@@ -1996,14 +1996,14 @@ type of <a>verifiable presentation</a>. One value of this property MUST be
 <code>VerifiablePresentation</code>, but additional types MAY be included. The
 related normative guidance in Section <a href="#types"></a> MUST be followed.
           </dd>
-          <dt><var>verifiableCredential</var></dt>
+          <dt><var id="defn-verifiableCredential">verifiableCredential</var></dt>
           <dd>
 The <code>verifiableCredential</code> <a>property</a> MAY be present. The value
 MUST be an array of one or more <a>verifiable credentials</a>, or of data
 derived from <a>verifiable credentials</a> in a cryptographically
 <a>verifiable</a> format.
           </dd>
-          <dt><var>holder</var></dt>
+          <dt><var id="defn-holder">holder</var></dt>
           <dd>
 The <a>verifiable presentation</a> MAY include a <code>holder</code>
 <a>property</a>. If present, the value MUST be either a <a>URL</a> or an object
@@ -2903,7 +2903,7 @@ thereby bypassing the <a>holder</a>.
         </p>
 
         <dl>
-          <dt><var>refreshService</var></dt>
+          <dt><var id="defn-refreshService">refreshService</var></dt>
           <dd>
 The value of the <code>refreshService</code> <a>property</a> MUST be one or more
 refresh services that provides enough information to the recipient's software
@@ -2991,7 +2991,7 @@ could be for the <a>subject</a> to delegate a <a>verifiable credential</a> to a
         </p>
 
         <dl>
-          <dt><var>termsOfUse</var></dt>
+          <dt><var id="defn-termsOfUse">termsOfUse</var></dt>
           <dd>
 The value of the <code>termsOfUse</code> <a>property</a> MUST specify one or
 more terms of use policies under which the creator issued the <a>credential</a>
@@ -3154,7 +3154,7 @@ expressing evidence information.
         </p>
 
         <dl>
-          <dt><dfn>evidence</dfn></dt>
+          <dt><dfn id="defn-evidence">evidence</dfn></dt>
           <dd>
 The value of the <code>evidence</code> <a>property</a> MUST be one or more
 evidence schemes providing enough information for a <a>verifier</a> to determine
@@ -3771,15 +3771,12 @@ identified by a media type, and conventions outlined in this section SHOULD be
 followed when defining or using media types with <a>verifiable credentials</a>.
         </p>
         <p>
-Any media types associated with the core data model are listed in the Section
-<a href="#iana-considerations"></a>.
+There are two media types associated with the core data model, which are
+listed in the Section <a href="#iana-considerations"></a>:
+`application/vc+ld+json` and `application/vp+ld+json`.
         </p>
         <p>
-There are two media types associated with the core data model:
-`application/vc+ld+json`, and `application/vp+ld+json`.
-        </p>
-        <p>
-The media types `application/vc+ld+json`, and `application/vp+ld+json` do not imply any particular securing
+The `application/vc+ld+json` and `application/vp+ld+json` media types do not imply any particular securing
 mechanism, but are intended to be used in conjunction with securing mechanisms.
 A securing mechanism needs to be applied to protect the integrity of these media types.
 Do not assume security of content regardless of the media type used to communicate it.
@@ -4798,7 +4795,7 @@ disclosure. In the case of atomization, if it is not done securely by the
 
         <p>
 For example, a university might issue two <a>verifiable credentials</a> to a
-person, each containing two <a>properties</a>, which must be taken together to
+person, each containing two <a>properties</a>, which must be taken together
 to designate the "role" of that person in a given "department", such as "Staff
 Member" in the "Department of Computing", or "Post Graduate Student" in the
 "Department of Economics". If these <a>verifiable credentials</a> are atomized
