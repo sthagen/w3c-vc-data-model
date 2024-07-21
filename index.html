@@ -4121,15 +4121,16 @@ algorithms MAY be general in nature and MAY be used to secure data other than
         </p>
 
         <p>
-Securing mechanism specifications MUST provide a verification mechanism that
-returns only the information in the [=conforming document=] that has been
-secured, without any securing mechanism information included, such as `proof` or
-JOSE/COSE header parameters and signatures. Specifications MAY provide additional mechanisms to convey
-other information that might be helpful (for example, during validation or for
-debugging purposes), such as securing mechanism data. A securing mechanism's
-verification algorithm MUST provide an interface that receives inputs of a media
-type ([=string=] |inputMediaType|) paired with either a sequence of bytes
-([=byte sequence=] |inputBytes|) or a document ([=map=] |inputDocument|), and
+Securing mechanism specifications MUST provide a verification algorithm that
+returns the information in the [=conforming document=] that has been secured, in
+isolation, without including any securing mechanism information, such as `proof` or
+JOSE/COSE header parameters and signatures. Verification algorithms MAY return
+additional information that might be helpful (for example, during validation or
+for debugging purposes), such as details of the securing mechanism. A verification
+algorithm MUST provide an interface that receives a media type ([=string=]
+|inputMediaType|) and input data ([=byte sequence=] or [=map=] |inputData|).
+Securing mechanism specifications MAY provide algorithms and interfaces in
+addition to the ones specified in this document. The verification algorithm
 returns a verification result with at least the following [=struct/items=]:
         </p>
 
@@ -4732,11 +4733,10 @@ versions of this specification.
         <h3>Verification</h3>
 
         <p>
-This section contains an algorithm that [=conforming verifier
-implementations=] MUST run when verifying a [=verifiable credential=] or a
-[=verifiable presentation=]. This algorithm takes a media
-type ([=string=] |inputMediaType|) and secured data
-([=byte sequence=] or [=map=] |inputData|) and returns a [=map=] that
+This section contains an algorithm that [=conforming verifier implementations=]
+MUST run when verifying a [=verifiable credential=] or a [=verifiable
+presentation=]. This algorithm takes a media type ([=string=] |inputMediaType|)
+and secured data ([=byte sequence=] |inputData|) and returns a [=map=] that
 contains the following:
         </p>
 
@@ -4784,10 +4784,13 @@ the securing mechanism. The |verifyProof| function MUST implement the interface
 described in <a href="#securing-mechanism-specifications"></a>.
               </li>
               <li>
-Set |result| to the result of passing |inputMediaType| and |inputData| to
-the |verifyProof| function. If the call was successful, |result| will contain
-the |status|, |document|, |mediaType|, |controller|, |controllerDocument|,
-|warnings|, and |errors| properties.
+If the |verifyProof| function expects a [=byte sequence=], provide
+|inputMediaType| and |inputData| to the algorithm. If the |verifyProof| function
+expects a [=map=], provide |inputMediaType| and the result of [=parsing JSON
+bytes to an Infra value=] given |inputData|. Set |result| to the result of the
+call to the |verifyProof| function. If the call was successful, |result| will
+contain the |status|, |document|, |mediaType|, |controller|,
+|controllerDocument|, |warnings|, and |errors| properties.
               </li>
               <li>
 If |result|.|status| is set to `false`, add a
