@@ -3216,17 +3216,15 @@ keyword in the JSON-LD 1.1 specification.
           </p>
 
           <p>
-The base JSON-LD Context file for this specification also includes an extra
-feature, using the <a data-cite="JSON-LD11/#default-vocabulary">`@vocab`</a>
-keyword, which ensures that any undefined term in a [=verifiable credential=] or
-a [=verifiable presentation=] is automatically mapped to a URL prefixed with
-`https://www.w3.org/ns/credentials/issuer-dependent#`. This is to allow early
-experimentation with terms during the development phase, without requiring a
-formal definition in every cycle of that experimentation. Note that developers
-SHOULD NOT use this feature in production; this could lead to name clashes,
-yielding semantic ambiguities with other applications. Instead, they SHOULD
-define all the terms, as described earlier in this section, to achieve proper
-interoperability.
+A [=conforming document=] SHOULD NOT use the
+<a data-cite="JSON-LD11/#default-vocabulary">`@vocab`</a> feature in production
+as it can lead to JSON term clashes, resulting in semantic ambiguities with
+other applications. Instead, to achieve proper interoperability, a [=conforming
+document=] SHOULD use JSON-LD Contexts that define all terms used by their
+applications, as described earlier in Section [[[#extensibility]]]. If a
+[=conforming document=] does not use JSON-LD Contexts that define all terms
+used, it MUST include the `https://www.w3.org/ns/credentials/undefined-terms/v2`
+as the last value in the `@context` property.
           </p>
         </section>
       </section>
