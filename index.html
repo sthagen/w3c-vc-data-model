@@ -542,10 +542,9 @@ document that complies with all of the relevant "MUST" statements in this
 specification. Specifically, the relevant normative "MUST" statements in
 Sections [[[#basic-concepts]]], [[[#advanced-concepts]]], and
 [[[#syntaxes]]] of this document MUST be enforced.
-A conforming document is either a [=verifiable credential=] that MUST be
-serialized using the `application/vc` media type or a
-[=verifiable presentation=] that MUST be serialized using the
-`application/vp` media type. A conforming document MUST be
+A conforming document MUST be either a [=verifiable credential=]
+with a media type of `application/vc` or a [=verifiable presentation=]
+with a media type of `application/vp`. A conforming document MUST be
 secured by at least one securing mechanism as described in Section
 [[[#securing-mechanisms]]].
         </p>
@@ -3217,11 +3216,11 @@ An example of a related resource integrity object referencing JSON-LD contexts.
 "relatedResource": [{
   "id": "https://www.w3.org/ns/credentials/v2",
   "digestSRI":
-    "sha384-lHKDHh0msc6pRx8PhDOMkNtSI8bOfsp4giNbUrw71nXXLf13nTqNJoRp3Nx+ArVK",
+    "sha384-lHKDHh0msc6pRx8PhDOMkNtSI8bOfsp4giNbUrw71nXXLf13nTqNJoRp3Nx+ArVK"
 },{
   "id": "https://www.w3.org/ns/credentials/examples/v2",
   "digestSRI":
-    "sha384-zNNbQTWCSUSi0bbz7dbua+RcENv7C6FvlmYJ1Y+I727HsPOHdzwELMYO9Mz68M26",
+    "sha384-zNNbQTWCSUSi0bbz7dbua+RcENv7C6FvlmYJ1Y+I727HsPOHdzwELMYO9Mz68M26"
 }]
         </pre>
 
@@ -3229,10 +3228,10 @@ An example of a related resource integrity object referencing JSON-LD contexts.
           title="Usage of the relatedResource and digestMultibase property">
 "relatedResource": [{
   "id": "https://www.w3.org/ns/credentials/v2",
-  "digestMultibase": "uEres1usWcWCmW7uolIW2uA0CjQ8iRV14eGaZStJL73Vz",
+  "digestMultibase": "uEres1usWcWCmW7uolIW2uA0CjQ8iRV14eGaZStJL73Vz"
 },{
   "id": "https://www.w3.org/ns/credentials/examples/v2",
-  "digestMultibase": "uElc5P7xp1u-5ubXcnLa5iAsJRDYKv-Lq9FnJ5YzyJ518",
+  "digestMultibase": "uElc5P7xp1u-5ubXcnLa5iAsJRDYKv-Lq9FnJ5YzyJ518"
 }]
         </pre>
 
@@ -3465,7 +3464,7 @@ information.
         <dl>
           <dt><dfn id="defn-evidence" class="export">evidence</dfn></dt>
           <dd>
-If present, the value associated with the `evidence` [=property=] is a single
+If present, the value of the `evidence` [=property=] MUST be either a single
 object or a set of one or more objects. The following [=properties=] are defined
 for every evidence object:
             <dl>
@@ -7184,8 +7183,7 @@ Credential implementations that justify the use of a specific media type.
         </p>
 
         <p>
-This media type can be used for credentials secured using an
-[=enveloping proof=].
+This media type can be used in an [=enveloping proof=] to denote the enveloped payload.
         </p>
 
         <p>
@@ -7248,8 +7246,7 @@ Credential implementations that justify the use of a specific media type.
         </p>
 
         <p>
-This media type can be used for presentations secured using an
-[=enveloping proof=].
+This media type can be used in an [=enveloping proof=] to denote the enveloped payload.
         </p>
         <p>
 The presentation is expected to be a valid
