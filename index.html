@@ -581,7 +581,7 @@ information as a valid document.
         </p>
 
         <p class="note" title="Human-readable texts in English are illustrative">
-Examples provided throughout this document include descriptive fields, such as
+Examples provided throughout this document include descriptive properties, such as
 `name` and `description`, with values in English to simplify the concepts in each
 example of the specification. These examples do not necessarily reflect the data
 structures needed for international use, described in more detail in
@@ -4340,9 +4340,9 @@ application being developed.
         <section class="notoc">
           <h3>Lists and Arrays</h3>
           <p>
-Lists, arrays, and even lists of lists, are possible when using [[JSON-LD11]] 1.1.
-We encourage those who want RDF semantics in use
-cases requiring lists and arrays to follow the guidance on
+Lists, arrays, and even lists of lists, are possible when using [[[JSON-LD11]]].
+We encourage those who want RDF semantics in use cases requiring lists and
+arrays to follow the guidance on
 <a href="https://www.w3.org/TR/json-ld11/#lists">lists in JSON-LD 1.1</a>.
           </p>
           <p>
@@ -4351,14 +4351,15 @@ that array uses the `@list` keyword.
           </p>
           <p class="note"
              title="Array order might not matter">
-While it is possible to use this data model without any JSON-LD processing,
-those who do so and make use of arrays need to be aware that unless the above
-guidance is followed, the order of items in an array cannot be guaranteed in
-JSON-LD. This might lead to unexpected behavior.
+While it is possible to use this data model by performing [=type-specific
+credential processing=], those who do so and make use of arrays need to be aware
+that unless the above guidance is followed, the order of items in an array
+are not guaranteed in JSON-LD. This might lead to unexpected behavior.
           </p>
           <p>
-If JSON structure or ordering is important to your application,
-we recommend you mark such elements as `@json` via an `@context`.
+If JSON structure or ordering is important to your application, we recommend you
+mark such elements as `@json` via an `@context` that is specific to your
+use case. An example of such a declaration is shown below.
           </p>
           <pre class="example" title="A @context file that defines a matrix as an embedded JSON data structure">
 {
@@ -4371,6 +4372,14 @@ we recommend you mark such elements as `@json` via an `@context`.
     }
 }
           </pre>
+
+          <p>
+When the context shown above is used in the example below, by including the
+`https://website.example/matrix/v1` context in the `@context` property, the
+value in `credentialSubject.matrix` retains its JSON semantics; the exact order
+of all elements in the two dimensional matrix is preserved.
+          </p>
+
           <pre class="example" title="A verifiable credential with an embedded JSON data structure">
 {
   "@context": [
@@ -4427,8 +4436,8 @@ regardless of the media type used to communicate it.
 
           <p>
 At times, developers or systems might use lower precision media types to convey
-[=verifiable credentials=] or [=verifiable presentations=]. Some of the
-reasons for use of lower precision media types include:
+[=verifiable credentials=] or [=verifiable presentations=]. Some of the reasons
+for use of lower precision media types include:
           </p>
 
           <ul>
@@ -4452,11 +4461,10 @@ example, `application/json` instead of `application/vp`,
 Implementers are urged to not raise errors when it is possible to determine the
 intended media type from a payload, provided that the media type used is
 acceptable in the given protocol. For example, if an application only accepts
-payloads that conform to the rules associated with the `application/vc`
-media type, but the payload is tagged with `application/json` or
-`application/ld+json` instead, the application might perform the following
-steps to determine whether the payload also conforms to the higher precision
-media type:
+payloads that conform to the rules associated with the `application/vc` media
+type, but the payload is tagged with `application/json` or `application/ld+json`
+instead, the application might perform the following steps to determine whether
+the payload also conforms to the higher precision media type:
           </p>
 
           <ol>
@@ -4464,22 +4472,22 @@ media type:
 Parse the payload as a JSON document.
             </li>
             <li>
-Ensure that the first element of the `@context` field matches
+Ensure that the first element of the `@context` property matches
 `https://www.w3.org/2018/credentials/v2`.
             </li>
             <li>
-Assume an `application/vp` media type if the JSON document contains a
-top-level `type` field containing a `VerifiablePresentation` element. Additional
+Assume an `application/vp` media type if the JSON document contains a top-level
+`type` property containing a `VerifiablePresentation` element. Additional
 subsequent checks are still expected to be performed (according to this
-specification) to ensure the payload expresses a conformant Verifiable
-Presentation.
+specification) to ensure the payload expresses a conformant
+[=verifiable presentation=].
             </li>
             <li>
-Assume an `application/vc` media type if the JSON document contains a
-top-level `type` field containing a `VerifiableCredential` element. Additional
+Assume an `application/vc` media type if the JSON document contains a top-level
+`type` property containing a `VerifiableCredential` element. Additional
 subsequent checks are still expected to be performed (according to this
-specification) to ensure the payload expresses a conformant Verifiable
-Credential.
+specification) to ensure the payload expresses a conformant
+[=verifiable credential=].
             </li>
           </ol>
 
@@ -4498,9 +4506,9 @@ system.
           <p>
 HTTP clients and servers use media types associated with [=verifiable
 credentials=] and [=verifiable presentations=] in accept headers and when
-indicating content types. Nonetheless, HTTP servers might ignore the accept
-header and return another content type, or return an error code such as
-<a data-cite="RFC7231#section-6.5.13">`415 Unsupported Media Type`</a>.
+indicating content types. Implementers are warned that HTTP servers might ignore
+the accept header and return another content type, or return an error code such
+as <a data-cite="RFC7231#section-6.5.13">`415 Unsupported Media Type`</a>.
           </p>
         </section>
       </section>
@@ -4578,18 +4586,18 @@ structured media type suffix.
 
           <p>
 That is, [=type-specific credential processing=] is allowed as long as the
-document being consumed or produced is a [=conforming document=]. If this
-type of processing is desired, an implementer is advised to follow this rule:
+document being consumed or produced is a [=conforming document=].
           </p>
 
-          <ul>
-            <li>
-Ensure that all values associated with a `@context` property are in the
-expected order, the contents of the context files match known good
-cryptographic hashes for each file, and domain experts have deemed that the
-contents are appropriate for the intended use case.
-            </li>
-          </ul>
+          <p class="advisement">
+If [=type-specific credential processing=] is desired, an implementer is advised
+to follow this rule:
+<br><br>
+Ensure that all values associated with a `@context` property are in the expected
+order, the contents of the context files match known good cryptographic hashes
+for each file, and domain experts have deemed that the contents are appropriate
+for the intended use case.
+          </p>
 
           <p>
 Using static context files with a JSON Schema is one acceptable approach to
@@ -4956,7 +4964,7 @@ policy.
 
         <p>
 Data associated with [=verifiable credentials=] stored in the
-`credential.credentialSubject` field is susceptible to privacy violations when
+`credential.credentialSubject` property is susceptible to privacy violations when
 shared with [=verifiers=]. Personally identifying data, such as a
 government-issued identifier, shipping address, and full name, can be easily
 used to determine, track, and correlate an [=entity=]. Even information that
@@ -6441,7 +6449,7 @@ of the [=validation=] of [=verifiable credentials=] or
 information in this data model is expected to be utilized by [=verifiers=]
 during the process of [=validation=]. This section captures a selection of
 conversations held by the Working Group related to the expected usage of the
-data fields in this specification by [=verifiers=].
+properties in this specification by [=verifiers=].
       </p>
 
       <section class="informative">
@@ -7429,7 +7437,7 @@ maximize interoperability.
 Provide more explicit guidance around sets and arrays.
         </li>
         <li>
-Add support for `name` and `description` fields for issuers and credentials.
+Add support for `name` and `description` properties for issuers and credentials.
         </li>
         <li>
 Add security considerations around interception, replay, and spoofing attacks.
