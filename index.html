@@ -18,7 +18,7 @@
         group: "vc",
 
         // specification status (for example, WD, LCWD, NOTE, etc.). If in doubt use ED.
-        specStatus: "CRD",
+        specStatus: "CR",
 
         // the specification's short name, as in http://www.w3.org/TR/short-name/
         shortName: "vc-data-model-2.0",
@@ -27,8 +27,8 @@
         //subtitle: "Expressing information with verifiable provenance",
 
         // if you wish the publication date to be other than today, set this
-        //publishDate: "2024-01-23",
-        crEnd: "2024-03-23",
+        publishDate: "2024-11-05",
+        crEnd: "2024-12-05",
         //prEnd: "2019-10-01",
         implementationReportURI: "https://w3c.github.io/vc-data-model-2.0-test-suite/",
         //errata: "https://w3c.github.io/vc-data-model/errata.html",
@@ -288,6 +288,14 @@ the <a href="https://w3c.github.io/vc-data-model-2.0-test-suite/">
 implementation report</a> for more details.
       </p>
 
+      <p class="atrisk issue"
+        title="Features with less than two independent implementations">
+Any feature with less than two independent implementations in the
+<a href="https://w3c.github.io/vc-data-model-2.0-test-suite/">
+implementation report</a> is an "at risk" feature and might be
+removed before the transition to W3C Proposed Recommendation.
+      </p>
+
       <p>
 Comments regarding this specification are welcome at any time.
 Please file issues directly on
@@ -478,7 +486,7 @@ correlatable identifiers for [=subjects=]. Some registries, such as ones for
 UUIDs and [=verification material=], might just act as namespaces for
 identifiers. Examples of verifiable data registries include trusted databases,
 decentralized databases, government ID databases, and distributed ledgers. Often,
-more than one type of verifiable data registry utilized in an ecosystem.
+more than one type of verifiable data registry used in an ecosystem.
           </dd>
         </dl>
 
@@ -1301,7 +1309,7 @@ Subsequent items in the [=ordered set=] MUST be composed of any combination of
           </dd>
         </dl>
 
-        <pre class="example nohighlight" title="Usage of the @context property">
+        <pre class="example nohighlight" title="Use of the @context property">
 {
   <span class="highlight">"@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -1392,7 +1400,7 @@ in a document containing machine-readable information about the `id`.
           </dd>
         </dl>
 
-        <pre class="example nohighlight vc" title="Usage of the id property"
+        <pre class="example nohighlight vc" title="Use of the id property"
           data-vc-vm="https://university.example/issuers/565049#key-1">
 {
   "@context": [
@@ -1463,7 +1471,7 @@ one value is provided, the order does not matter.
           </dd>
         </dl>
 
-        <pre class="example nohighlight vc" title="Usage of the type property"
+        <pre class="example nohighlight vc" title="Use of the type property"
           data-vc-vm="https://university.example/issuers/565049#key-1">
 {
   "@context": [
@@ -1684,7 +1692,7 @@ without having to look through the entirety of the [=claims=].
         </dl>
 
         <pre class="example nohighlight vc"
-          title="Usage of the name and description property"
+          title="Use of the name and description properties"
           data-vc-vm="https://university.example/issuers/565049#key-1">
 {
   "@context": [
@@ -1732,7 +1740,7 @@ in the [[[JSON-LD11]]] specification.
         </p>
 
         <pre class="example nohighlight"
-          title="Usage of the name and description property">
+          title="Use of the name and description properties">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -1835,7 +1843,7 @@ in a controller document, as defined in [[CONTROLLER-DOCUMENT]], about the
           </dd>
         </dl>
 
-        <pre class="example nohighlight vc" title="Usage of issuer property"
+        <pre class="example nohighlight vc" title="Use of the issuer property"
           data-vc-vm="https://university.example/issuers/14#key-1">
 {
   "@context": [
@@ -1862,7 +1870,7 @@ associating an object with the issuer property:
         </p>
 
         <pre class="example nohighlight vc"
-          title="Usage of issuer expanded property"
+          title="Expanded use of the issuer property"
           data-vc-vm="did:example:76e12ec712ebc6f1c221ebfeb1f#key-1">
 {
   "@context": [
@@ -1921,7 +1929,7 @@ Section [[[#identifiers]]].
         </dl>
 
         <pre class="example nohighlight vc"
-          title="Usage of the credentialSubject property"
+          title="Use of the credentialSubject property"
           data-vc-vm="https://university.example/issuers/565049#key-1">
 {
   "@context": [
@@ -2020,7 +2028,7 @@ point in time expressed by the `validFrom` value.
         </dl>
 
         <pre class="example nohighlight vc"
-          title="Usage of validFrom and validUntil property"
+          title="Use of the validFrom and validUntil properties"
           data-vc-vm="https://university.example/issuers/14#key-1">
 {
   "@context": [
@@ -2094,7 +2102,7 @@ external document that notes whether the [=credential=] is suspended or revoked.
         </p>
 
         <pre class="example nohighlight"
-          title="Usage of the status property">
+          title="Use of the status property">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -2127,7 +2135,7 @@ with it, such as whether it has been revoked or suspended.
         </p>
 
         <pre class="example nohighlight"
-          title="Usage of multiple entries for the status property">
+          title="Use of multiple entries for the status property">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -2253,7 +2261,7 @@ integrity protection mechanism. The `credentialSchema`
         </p>
 
         <pre class="example nohighlight"
-          title="Usage of the credentialSchema property to perform JSON schema validation">
+          title="Using the credentialSchema property to perform JSON schema validation">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -2321,7 +2329,7 @@ in Section [[[#securing-mechanism-specifications]]].
         </p>
 
         <pre class="example nohighlight"
-          title="A verifiable credential utilizing an embedded proof">
+          title="A verifiable credential using an embedded proof">
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -2680,7 +2688,10 @@ mechanism as the [=verifiable presentation=].
   "type": ["VerifiablePresentation", "ExamplePresentation"],
   "holder": "did:example:12345678",
   "verifiableCredential": [{
-    "@context": "https://www.w3.org/ns/credentials/v2",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://www.w3.org/ns/credentials/examples/v2"
+    ],
     "type": ["VerifiableCredential", "ExampleFoodPreferenceCredential"],
     "issuer": "did:example:12345678",
     "credentialSubject": {
@@ -2708,7 +2719,10 @@ self-asserted [=verifiable credential=] holding [=claims=] about the
   <span class="highlight">"id": "urn:uuid:313801ba-24b7-11ee-be02-ff560265cf9b"</span>,
   "holder": "did:example:12345678",
   "verifiableCredential": [{
-    "@context": "https://www.w3.org/ns/credentials/v2",
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      "https://www.w3.org/ns/credentials/examples/v2"
+    ],
     "type": ["VerifiableCredential", "ExampleAssertCredential"],
     "issuer": "did:example:12345678",
     "credentialSubject": {
@@ -3212,7 +3226,7 @@ An example of a related resource integrity object referencing JSON-LD contexts.
         </p>
 
         <pre class="example nohighlight"
-          title="Usage of the relatedResource and digestSRI property">
+          title="Use of the relatedResource and digestSRI properties">
 "relatedResource": [{
   "id": "https://www.w3.org/ns/credentials/v2",
   "digestSRI":
@@ -3225,7 +3239,7 @@ An example of a related resource integrity object referencing JSON-LD contexts.
         </pre>
 
         <pre class="example nohighlight"
-          title="Usage of the relatedResource and digestMultibase property">
+          title="Use of the relatedResource and digestMultibase properties">
 "relatedResource": [{
   "id": "https://www.w3.org/ns/credentials/v2",
   "digestMultibase": "uEres1usWcWCmW7uolIW2uA0CjQ8iRV14eGaZStJL73Vz"
@@ -3280,7 +3294,7 @@ definition.
         </dl>
 
         <pre class="example nohighlight"
-          title="Usage of the refreshService property by an issuer">
+          title="Use of the refreshService property by an issuer">
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -3325,7 +3339,7 @@ thereby bypassing the [=holder=].
         <h3>Terms of Use</h3>
 
         <p>
-Terms of use can be utilized by an [=issuer=] or a [=holder=] to
+Terms of use can be used by an [=issuer=] or a [=holder=] to
 communicate the terms under which a [=verifiable credential=] or
 [=verifiable presentation=] was issued. The [=issuer=] places their terms
 of use inside the [=verifiable credential=]. The [=holder=] places their
@@ -3374,7 +3388,7 @@ by the specific `termsOfUse` [=type=] definition.
         </dl>
 
         <pre class="example nohighlight"
-          title="Usage of the termsOfUse property by an issuer">
+          title="Use of the termsOfUse property by an issuer">
 {
   {
     "@context": [
@@ -3432,9 +3446,9 @@ framework, with a specific link to the policy.
         <p>
 This feature is expected to be used by government-issued [=verifiable
 credentials=] to instruct digital wallets to limit their use to similar
-government organizations in an attempt to protect citizens from unexpected usage
+government organizations in an attempt to protect citizens from unexpected use
 of sensitive data. Similarly, some [=verifiable credentials=] issued by private
-industry are expected to limit usage to within departments inside the
+industry are expected to limit use to within departments inside the
 organization, or during business hours. Implementers are urged to read more
 about this evolving feature in the appropriate section of the Verifiable
 Credentials Implementation Guidelines [[?VC-IMP-GUIDE]] document.
@@ -3544,7 +3558,7 @@ video of the [=subject=] of the [=credential=] demonstrating the achievement.
         <p class="note"
            title="Evidence has a different purpose from securing mechanisms">
 The `evidence` [=property=] provides information that is different from and
-information to the securing mechanism utilized. The `evidence` [=property=] is
+information to the securing mechanism used. The `evidence` [=property=] is
 used to express supporting information, such as documentary evidence, related to
 the [=verifiable credential=]. In contrast, the securing mechanism is used to
 express machine-verifiable mathematical proofs related to the authenticity of
@@ -3800,7 +3814,7 @@ values that are affected by Daylight Saving/Summer Time.
         <p>
 This specification attempts to increase the number of universally recognized
 combinations of dates and times, and reduce the potential for
-misinterpretation of time values, by utilizing the
+misinterpretation of time values, by using the
 `dateTimeStamp` construction first established by the [<a
 data-cite="XMLSCHEMA11-2#dateTimeStamp">XMLSCHEMA11-2</a>] specification. In
 order to reduce misinterpretations between different time zones, all time values
@@ -3993,7 +4007,7 @@ algorithm to the data model in this specification results in
 a [=conforming document=].
           </li>
           <li>
-SHOULD ensure that all semantics utilized in the transformed
+SHOULD ensure that all semantics used in the transformed
 [=conforming document=] follow best practices for Linked Data. See
 Section [[[#getting-started]]], Section
 [[[#extensibility]]], and Linked Data Best Practices [[?LD-BP]]
@@ -4004,7 +4018,7 @@ for additional guidance.
         <p class="note" title="What constitutes a verifiable credential?">
 Readers are advised that a digital credential is only considered compatible with
 the W3C Verifiable Credentials ecosystem if it is a [=conforming document=]
-and it utilizes at least one securing mechanism, as described by their
+and it uses at least one securing mechanism, as described by their
 respective requirements in this specification. While some communities might call
 some digital credential formats that are not [=conforming documents=]
 "verifiable credentials", doing so does NOT make that digital credential
@@ -4273,10 +4287,10 @@ all terms understood by users of the data model whether or not they use a
           <h3>Restrictions on JSON-LD</h3>
 
           <p>
-In order to increase interoperability, this specification restricts the usage of
+In order to increase interoperability, this specification restricts the use of
 JSON-LD representations of the data model. JSON-LD <a
 href="https://www.w3.org/TR/json-ld/#compacted-document-form">compacted document
-form</a> MUST be utilized for all representations of the data model using the
+form</a> MUST be used for all representations of the data model using the
 `application/vc` or `application/vp` media type.
           </p>
 
@@ -4545,7 +4559,7 @@ with any other JSON-formatted data.
           </p>
 
           <p>
-<dfn>General JSON-LD processing</dfn> is defined as a mechanism that utilizes a
+<dfn>General JSON-LD processing</dfn> is defined as a mechanism that uses a
 JSON-LD software library to process a [=conforming document=] by performing
 various <a data-cite="?JSON-LD11#forms-of-json-ld">transformations</a>.
 <dfn>Type-specific credential processing</dfn> is defined as a lighter-weight
@@ -4628,7 +4642,7 @@ exchange happens is explicitly stated for both processing mechanisms by using
       <p>
 This section contains algorithms that can be used by implementations to perform
 common operations, such as [=verification=]. Conformance requirements phrased as
-algorithms utilize normative concepts from the [[[INFRA]]] [[INFRA]]. See the
+algorithms use normative concepts from the [[[INFRA]]] [[INFRA]]. See the
 section on <a data-cite="INFRA#algorithm-conformance">Algorithm Conformance</a>
 in the [[[INFRA]]] for more guidance on implementation requirements.
       </p>
@@ -5018,7 +5032,7 @@ and organization-issued identifiers.
 
         <p>
 Similarly, disclosing the [=credential=] identifier (as in
-[[[#example-usage-of-the-id-property]]]) can lead to situations where multiple
+[[[#example-use-of-the-id-property]]]) can lead to situations where multiple
 [=verifiers=], or an [=issuer=] and a [=verifier=], can collude to correlate the
 [=holder=].
         </p>
@@ -5308,7 +5322,7 @@ possible by not specifying the [=subject=] identifier, expressed using the
         </p>
 
         <pre class="example nohighlight vc"
-          title="Usage of issuer properties"
+          title="Use of issuer properties"
           data-vc-vm="https://university.example/issuers/14#keys-1">
 {
   "@context": [
@@ -5555,7 +5569,7 @@ established profile. For more information, see [[DEMOGRAPHICS]].
           </li>
           <li>
 Passing the identifier of a [=credential=] to a centralized revocation server.
-The centralized server can correlate the [=credential|credential's=] use across
+The centralized server can correlate uses of the [=credential=] across
 interactions. For example, if a [=credential=] is used to prove age in this
 manner, the centralized service could know everywhere that [=credential=] was
 presented (all liquor stores, bars, adult stores, lottery sellers, and so on).
@@ -5593,11 +5607,11 @@ Unfortunately, these mitigation techniques are only sometimes practical or
 even compatible with necessary use. Sometimes, correlation is a requirement.
         </p>
         <p>
-For example, in some prescription drug monitoring programs, usage monitoring is
-a requirement. Enforcement entities need to be able to confirm that individuals
+For example, in some prescription drug monitoring programs, monitoring prescription
+use is a requirement. Enforcement entities need to be able to confirm that individuals
 are not cheating the system to get multiple prescriptions for controlled
-substances. This statutory or regulatory need to correlate usage overrides
-individual privacy concerns.
+substances. This statutory or regulatory need to correlate prescription
+use overrides individual privacy concerns.
         </p>
 
         <p>
@@ -5609,8 +5623,8 @@ long as each of those services uses the correlation in the expected manner.
         </p>
 
         <p>
-Privacy violations of [=verifiable credential=] usage occur when unintended or
-unexpected correlation arises from the presentation of those
+Privacy violations related to the use of [=verifiable credentials=] occur when
+unintended or unexpected correlation arises from the presentation of those
 [=verifiable credentials=].
         </p>
       </section>
@@ -5932,7 +5946,7 @@ against tampering because the data resides outside of the protection of the
 
         <p>
 Section [[[#integrity-of-related-resources]]] of this specification provides an
-optional mechanism for ensuring content integrity of external
+optional mechanism for ensuring the integrity of the content of external
 resources. This mechanism is not necessary for external resources that do not
 impact the [=verifiable credential=]'s security. However, its implementation
 is crucial for external resources where content changes could potentially
@@ -6198,7 +6212,7 @@ It requires some version of an HTML processor, which increases the burden of
 processing language and base direction information.
           </li>
           <li>
-It increases the security attack surface when utilizing this data model,
+It increases the security attack surface when using this data model,
 because naively processing HTML could result in the execution of a `script`
 tag that an attacker injected at some point during the data production process.
           </li>
@@ -6227,13 +6241,13 @@ implementation of any web standard or protocol, ignoring accessibility issues
 makes this information unusable by a large subset of the population. It is
 important to follow accessibility guidelines and standards, such as [[WCAG21]],
 to ensure that all people, regardless of ability, can make use of this data.
-This is especially important when establishing systems utilizing cryptography,
+This is especially important when establishing systems using cryptography,
 which have historically created problems for assistive technologies.
       </p>
 
       <p>
 This section details the general accessibility considerations to take into
-account when utilizing this data model.
+account when using this data model.
       </p>
 
       <section class="informative">
@@ -6247,7 +6261,7 @@ for people with vision impairments.
         </p>
 
         <p>
-When utilizing this data model to create [=verifiable credentials=], it is
+When using this data model to create [=verifiable credentials=], it is
 suggested that data model designers use a <em>data first</em> approach. For
 example, given the choice of using data or a graphical image to depict a
 [=credential=], designers should express every element of the image, such as
@@ -6285,7 +6299,7 @@ Implementation Guidelines [[VC-IMP-GUIDE]] document.
 
       <p>
 This section outlines general internationalization considerations to take into
-account when utilizing this data model and is intended to highlight specific
+account when using this data model and is intended to highlight specific
 parts of the <em>Strings on the Web: Language and Direction Metadata</em>
 document [[STRING-META]] that implementers might be interested in reading.
       </p>
@@ -6441,9 +6455,9 @@ direction associated with them SHOULD be treated as if the direction value is
 While this specification does not provide conformance criteria for the process
 of the [=validation=] of [=verifiable credentials=] or
 [=verifiable presentations=], readers might be curious about how the
-information in this data model is expected to be utilized by [=verifiers=]
+information in this data model is expected to be used by [=verifiers=]
 during the process of [=validation=]. This section captures a selection of
-conversations held by the Working Group related to the expected usage of the
+conversations held by the Working Group related to the expected use of the
 properties in this specification by [=verifiers=].
       </p>
 
@@ -6781,7 +6795,7 @@ Unix command interface line:
         </p>
         <p>
 It is strongly advised that all JSON-LD Context URLs used by an
-application utilize the same mechanism, or a functionally equivalent mechanism,
+application use the same mechanism, or a functionally equivalent mechanism,
 to ensure end-to-end security. Implementations are expected to throw errors
 if a cryptographic hash value for a resource does not match the expected hash
 value.
@@ -7055,7 +7069,7 @@ include additional type values in the array. Many verifiers will request a
 value could make it more difficult for verifiers to inform the holder which
 [=verifiable credential=] they require. When a [=verifiable credential=]
 has multiple subtypes, listing all of them in the `type`
-property is sensible. The usage of the `type` property in a
+property is sensible. The use of the `type` property in a
 [[JSON-LD11]] representation of a [=verifiable credential=] enables to enforce
 the semantics of the [=verifiable credential=] because the machine is able to
 check the semantics. With [[JSON-LD11]], the technology is not only describing the
@@ -7374,6 +7388,41 @@ specification over time.
 
       <p>
 Changes since the
+<a href="https://www.w3.org/TR/2024/CR-vc-data-model-2.0-20240201/">
+v2.0 First Candidate Recommendation</a>:
+      </p>
+      <ul>
+        <li>
+Many editorial updates to clarify grammar, flow, and understanding of the
+specification contents.
+        </li>
+        <li>
+Required that the verifier check digest values if they are provided by the
+issuer.
+        </li>
+        <li>
+Removed the ProblemDetail integer error codes.
+        </li>
+        <li>
+Removed `@vocab` from the base context and added warnings about its use in
+application-specific context files.
+        </li>
+        <li>
+Added support for two digest formats for resource integrity.
+        </li>
+        <li>
+Finalized media types for `application/vc` and `application/vp`.
+        </li>
+        <li>
+Updates to the v2 JSON-LD Context to match new additions.
+        </li>
+        <li>
+Added a section on enveloped verifiable presentations.
+        </li>
+      </ul>
+
+      <p>
+Changes since the
 <a href="https://www.w3.org/TR/2022/REC-vc-data-model-20220303/">
 v1.1 Recommendation</a>:
       </p>
@@ -7462,7 +7511,7 @@ Add section on media type precision and interpretation.
         </li>
         <li>
 Ensure that `dateTimeStamp` is used for time values. Provide further guidance
-on proper usage of time values and timezones.
+on proper use of time values and timezones.
         </li>
         <li>
 Make `validFrom` optional.
@@ -7560,7 +7609,7 @@ Add this revision history section.
         <li>
 Update previous normative references that pointed to RFC3339 for date-time
 details to now normatively reference the date-time details described in
-XMLSCHEMA11-2 which more accurately reflects the usage in examples and
+XMLSCHEMA11-2 which more accurately reflect date-time use in examples and
 libraries.
         </li>
 
