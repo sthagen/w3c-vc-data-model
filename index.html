@@ -27,9 +27,9 @@
         //subtitle: "Expressing information with verifiable provenance",
 
         // if you wish the publication date to be other than today, set this
-        publishDate: "2024-3-06",
-        crEnd: "2024-01-19",
-        prEnd: "2024-4-03",
+        publishDate: "2025-3-20",
+        crEnd: "2025-01-19",
+        prEnd: "2025-4-17",
         implementationReportURI: "https://w3c.github.io/vc-data-model-2.0-test-suite/",
         //errata: "https://w3c.github.io/vc-data-model/errata.html",
         previousMaturity: "REC",
@@ -57,21 +57,6 @@
             authors: ["ETSI"],
             status: "ETSI Standard TS 119 612 V2.1.1 (2015-07)",
             publisher: "ETSI"
-          },
-          "VC-CONTROLLER-DOCUMENT": {
-            title: "Verifiable Credential Controller Document",
-            href: "https://w3c.github.io/vc-controller-document/",
-            authors: [
-              "Manu Sporny",
-              "Dave Longley",
-              "Markus Sabadello",
-              "Drummond Reed",
-              "Orie Steele",
-              "Christopher Allen",
-              "Michael B. Jones"
-            ],
-            status: "ED",
-            publisher: "Verifiable Credentials Working Group"
           },
           'DEMOGRAPHICS': {
             title: 'Simple Demographics Often Identify People Uniquely',
@@ -184,7 +169,7 @@
             note: "v2.0", w3cid: 7382, orcid: "0000-0003-0782-2704"
           }
         ],
-        xref: ["URL", "I18N-GLOSSARY", "INFRA", "CONTROLLER-DOCUMENT"],
+        xref: ["URL", "I18N-GLOSSARY", "INFRA", "CID"],
         lint: { "informative-dfn": false },
         maxTocLevel: 3,
         inlineCSS: true
@@ -604,7 +589,7 @@ is associated with an [=entity=]. These identifiers are most often used in a
 [=verifiable credential=] can be easily ported from one
 [=credential repository=] to another without reissuing the [=credential=].
 An example of a DID is `did:example:123456abcdef`. See the
-[[[?DID-CORE]]] specification for further details.
+[[[?DID]]] specification for further details.
         </dd>
         <dt><dfn class="lint-ignore" data-lt="decentralized identifier documents|DID document|DID documents">decentralized identifier document</dfn></dt>
         <dd>
@@ -612,7 +597,7 @@ Also referred to as a <strong><em>DID document</em></strong>, this is a document
 that is accessible using a [=verifiable data registry=] and contains
 information related to a specific [=decentralized identifier=], such as the
 associated [=credential repository=] and [=verification material=]. See the
-[[[?DID-CORE]]] specification for further details.
+[[[?DID]]] specification for further details.
         </dd>
         <dt><dfn data-lt="default graph">default graph</dfn></dt>
         <dd>
@@ -1811,14 +1796,13 @@ A [=verifiable credential=] MUST have an `issuer` [=property=].
         <dl>
           <dt><var id="defn-issuer">issuer</var></dt>
           <dd>
-The value of the `issuer` [=property=] MUST be either a
-[=URL=] or an object containing an `id` [=property=]
-whose value is a [=URL=]; in either case, the issuer selects this
-[=URL=] to identify itself in a globally unambiguous
-way. It is RECOMMENDED that the [=URL=] be one which, if dereferenced, results
-in a controller document, as defined in [[CONTROLLER-DOCUMENT]], about the
-[=issuer=] that can be used to [=verify=] the information expressed in the
-[=credential=].
+The value of the `issuer` [=property=] MUST be either a [=URL=] or an object
+containing an `id` [=property=] whose value is a [=URL=]; in either case, the
+issuer selects this [=URL=] to identify itself in a globally unambiguous way. It
+is RECOMMENDED that the [=URL=] be one which, if dereferenced, results in a
+controlled identifier document, as defined in the [[[?CID]]] specification,
+about the [=issuer=] that can be used to [=verify=] the information expressed
+in the [=credential=].
           </dd>
         </dl>
 
@@ -3028,7 +3012,7 @@ URLs — defined by well-known, public vocabularies, such as [[[?SCHEMA-ORG]]].
             </li>
             <li>
 New terms MUST <em>define</em> a new URL for each term. When doing so, the
-general guidelines for [[LINKED-DATA]] are expected to be followed, in
+general guidelines for [[?LINKED-DATA]] are expected to be followed, in
 particular:
               <ul>
                 <li>
@@ -4671,8 +4655,8 @@ a controller of the verification method associated with the securing mechanism
 ([=string=] |controller|)
           </li>
           <li>
-a controller document that is associated with the verification method used
-to verify the securing mechanism ([=map=] |controllerDocument|)
+a controlled identifier document that is associated with the verification method
+used to verify the securing mechanism ([=map=] |controllerDocument|)
           </li>
           <li>
 zero or more warnings ([=list=] of [=ProblemDetails=] |warnings|)
@@ -7349,6 +7333,24 @@ separate rectangle, containing a single text field:
 This section contains the substantive changes that have been made to this
 specification over time.
       </p>
+
+      <p>
+Changes since the
+<a href="https://www.w3.org/TR/2024/CR-vc-data-model-2.0-20241219/">
+v2.0 Second Candidate Recommendation</a>:
+      </p>
+      <ul>
+        <li>
+Editorial updates to clarify grammar, flow, and understanding of the
+specification contents.
+        </li>
+        <li>
+Align required error condition fields between Working Group specifications.
+        </li>
+        <li>
+Clarify requirements around self-asserted [=verifiable credentials=].
+        </li>
+      </ul>
 
       <p>
 Changes since the
