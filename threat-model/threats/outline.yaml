@@ -15,16 +15,16 @@
 categories:
   - name: Target Threats
     id: threat-model-target-threats
-    threats: [T1]
+    threats: [T1, T25]
   - name: Implementation Threats
     id: threat-model-implementation-threats
-    threats: [T2]
+    threats: [T2, T8, T12, T18, T19, T20, T24]
   - name: Deployment Threats
     id: threat-model-deployment-threats
-    threats: [T3]
+    threats: [T3, T6, T7, T9, T11, T14, T15, T16, T17, T21, T22]
   - name: External Threats
     id: threat-model-external-threats
-    threats: [T4]
+    threats: [T4, T10, T13, T23]
   - name: Dependency Threats
     id: threat-model-dependency-threats
     threats: [T5]
@@ -61,3 +61,23 @@ files:
   - t3-identifier-based-correlation.yaml
   - t4-storage-provider-data-mining.yaml
   - t5-cryptographic-suite-obsolescence.yaml
+  - t6-untrustworthy-user-agent-software.yaml
+  - t7-excessive-data-disclosure.yaml
+  - t8-signature-based-correlation.yaml
+  - t9-metadata-based-correlation.yaml
+  - t10-device-tracking-and-fingerprinting.yaml
+  - t11-bearer-credential-reuse.yaml
+  - t12-correlation-via-status-lookup.yaml
+  - t13-credential-aggregation.yaml
+  - t14-correlation-via-patterns-of-use.yaml
+  - t15-disclosure-to-malicious-verifier.yaml
+  - t16-data-theft.yaml
+  - t17-issuer-side-correlation.yaml
+  - t18-signing-key-compromise.yaml
+  - t19-unprotected-external-resources.yaml
+  - t20-presentation-exchange-attacks.yaml
+  - t21-inappropriate-validity-periods.yaml
+  - t22-device-theft-and-impersonation.yaml
+  - t23-unauthorized-post-presentation-use.yaml
+  - t24-inappropriate-use.yaml
+  - t25-identity-proofing-failure.yaml
